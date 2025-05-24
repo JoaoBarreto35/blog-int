@@ -1,0 +1,9 @@
+.searchBar {
+  padding: '8px 12px';
+  width: '100%';
+  max-width: 400;
+  margin-bottom: 20;
+  border-radius: 4;
+  border: '1px solid #ccc';
+  font-size: 16;
+}

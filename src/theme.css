@@ -1,0 +1,77 @@
+/* Tema claro (default) */
+:root {
+  --color-background: #ffffff;
+  --color-text: #222222;
+  --color-primary: #0070f3;
+  --color-primary-dark: #005bb5;
+  --color-secondary: #f39c12; /* amarelo suave */
+  --color-muted: #666666;
+
+  --font-family-base: 'Georgia, serif';
+  --font-family-mono: 'Courier New, monospace';
+
+  --spacing-small: 0.8rem; /* 8px */
+  --spacing-medium: 1.6rem; /* 16px */
+  --spacing-large: 3.2rem; /* 32px */
+}
+
+/* Tema escuro */
+.dark {
+  --color-background: #121212;
+  --color-text: #e0e0e0;
+  --color-primary: #3399ff;
+  --color-primary-dark: #2673cc;
+  --color-secondary: #f39c12;
+  --color-muted: #999999;
+
+  --font-family-base: 'Georgia, serif';
+  --font-family-mono: 'Courier New, monospace';
+
+  --spacing-small: 0.8rem;
+  --spacing-medium: 1.6rem;
+  --spacing-large: 3.2rem;
+}
+
+/* Uso das variáveis (exemplo global) */
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  padding: var(--spacing-medium);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-base);
+  margin-bottom: var(--spacing-medium);
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: var(--spacing-medium);
+  color: var(--color-text);
+}
+
+/* Container centralizado */
+.container {
+  max-width: 60rem; /* 960px */
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
+}

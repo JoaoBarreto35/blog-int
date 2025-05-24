@@ -1,0 +1,49 @@
+/* Define 1rem = 10px */
+html {
+  font-size: 62.5%; /* 62.5% de 16px = 10px */
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo base do corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem; /* equivale a 20px */
+}
+
+/* Links padrão */
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Cabeçalhos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Container padrão */
+.container {
+  max-width: 96rem; /* 960px */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
