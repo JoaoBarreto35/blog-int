@@ -1,4 +1,3 @@
-// hooks/usePosts.ts
 import { useEffect, useState } from 'react';
 import { fetchPosts } from '../services/postsServices';
 import type { FlatPost } from '../types/post';
@@ -17,8 +16,12 @@ export function usePosts(limit = 50) {
 
       try {
         const data = await fetchPosts(limit);
-        setPosts(data);
-        setFilteredPosts(data);
+        if (data.length > 0) {
+          setPosts(data);
+          setFilteredPosts(data);
+        } else {
+          setError('Nenhum post encontrado');
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Erro ao carregar posts');
       } finally {
@@ -26,19 +29,25 @@ export function usePosts(limit = 50) {
       }
     }
 
-    loadPosts();
-  }, [limit]);
+    if (posts.length === 0) { // Evita requisições repetidas desnecessárias
+      loadPosts();
+    }
+  }, [limit,posts.length]);
+
   useEffect(() => {
-    console.log('Posts do backend:', posts);
+    if (posts.length > 0) {
+      console.log('Posts do backend:', posts);
+    }
   }, [posts]);
 
   useEffect(() => {
-    const lowerSearch = search.toLowerCase().trim();
-    const results = posts.filter(post =>
-      post.title?.toLowerCase().includes(lowerSearch),
-    );
-
-    setFilteredPosts(results);
+    if (search.trim()) {
+      const lowerSearch = search.toLowerCase().trim();
+      const results = posts.filter(post => post.title?.toLowerCase().includes(lowerSearch));
+      setFilteredPosts(results);
+    } else {
+      setFilteredPosts(posts); // Se não houver pesquisa, mantém todos os posts
+    }
   }, [search, posts]);
 
   return { posts: filteredPosts, search, setSearch, loading, error };

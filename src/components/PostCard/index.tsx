@@ -1,4 +1,7 @@
+
+import { useNavigate } from 'react-router-dom';
 import type { FlatPost } from '../../types/post';
+import styles from "./styles.module.css"
 
 interface PostCardProps {
   post: FlatPost;
@@ -12,12 +15,18 @@ export function PostCard({ post }: PostCardProps) {
     ? new Date(post.publishedAt).toLocaleDateString()
     : 'Data indisponível';
 
+  const navigate = useNavigate();
+
+  function handleRedirect() {
+    navigate(`/posts/${post.slug}`);
+  }
   return (
+
     <article
-      className='post-card'
-      style={{ border: '1px solid #ddd', padding: 12, marginBottom: 12 }}
+      className={styles.card}
+      onClick={handleRedirect}
     >
-      <h2>{post.title}</h2>
+      <h2 className={styles.title}>{post.title}</h2>
       <p>
         {shortDescription}
         {post.content && post.content.length > 100 ? '...' : ''}

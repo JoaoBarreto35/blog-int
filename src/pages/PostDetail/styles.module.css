@@ -1,0 +1,83 @@
+.titleContainer{
+  display: flex;
+  flex-direction:row;
+  width: 100%;
+  padding-top: var(--height-header);
+  background-color: var(--color-primary);
+  align-items: top;
+  height: 70rem;
+  text-align: center;
+}
+.left{
+  height:100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: left ;
+  justify-content: top;
+   min-width: 0;
+}
+.left img{
+  height: 100%;
+  display: flex;
+
+  background-color: var(--color-primary);
+  object-fit: cover;
+  min-width: 0;
+  
+}
+.titleContainer h1{
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  padding-inline: 10rem;
+  
+  
+}
+
+.title{
+  font-size: 8rem;
+  font-family: 'Trebuchet MS', sans-serif;
+
+}
+.content{
+  display: grid;
+  grid-template-columns:1fr 2fr 1fr;
+}
+.content p{
+  white-space: pre-line;
+  text-align: justify;
+  padding: 10rem;
+
+}
+.ads{
+  padding: 2rem;
+  
+}
+@media (max-width: 750px) {
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem
+}
+.content p{
+  padding: 5rem;
+}
+.titleContainer{
+  display: flex;
+  flex-direction:column;
+  justify-content: top ;
+  height: auto;
+}
+
+.title{
+  font-size: 2rem;
+  text-align: center;
+  
+  height: 100%;
+}
+.left{
+  height:70%;
+
+}
+}

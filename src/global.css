@@ -12,23 +12,16 @@ html {
 
 /* Estilo base do corpo */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  color: #222;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
   line-height: 1.6;
   min-height: 100vh;
-  padding: 2rem; /* equivale a 20px */
+  font-size: 2rem;
 }
 
 /* Links padrão */
-a {
-  color: #0070f3;
-  text-decoration: none;
-}
 
-a:hover {
-  text-decoration: underline;
-}
 
 /* Cabeçalhos */
 h1,
@@ -40,10 +33,20 @@ h6 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
-
-/* Container padrão */
-.container {
-  max-width: 96rem; /* 960px */
-  margin: 0 auto;
-  padding: 0 1rem;
+.defaultButton{
+  padding-block: 0.8rem;
+  padding-inline: 1.6rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 2rem;
+  background-color: var(--color-text);
+  color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+.defaultButton:hover{
+  background-color: var(--color-primary);
+  color: #fff;
 }

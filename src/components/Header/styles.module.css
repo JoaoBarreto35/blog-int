@@ -1,0 +1,39 @@
+.header{
+  width: 100%;
+  background-color: var(--color-text);
+  color: var(--color-background);
+  display: flex ;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  height:var(--height-header);
+  position: fixed;
+  
+}
+.menu{
+  display: flex;
+  gap: 3rem;
+  padding: 1rem;
+  padding-inline: 3rem;
+  align-items: center;
+}
+
+.links{
+  text-decoration: none;
+  color: var(--color-background);
+  outline: none;
+
+}
+.links:hover{
+  color: var(--color-primary);
+  transform: scale(1.02);
+}
+.header p{
+  color: var(--color-background);
+}
+.haveUser{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}

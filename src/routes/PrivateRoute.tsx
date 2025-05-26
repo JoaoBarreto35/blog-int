@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/useAuth';
+import { showMessage } from '../adapter';
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export default function PrivateRoute({ children }: PrivateRouteProps) {
   }
 
   if (!isAuthenticated) {
+    showMessage.warn("Para acessar esta pagina tem que estar logado")
     return <Navigate to='/login' replace />;
   }
 

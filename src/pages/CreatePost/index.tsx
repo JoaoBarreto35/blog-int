@@ -1,7 +1,7 @@
-// pages/CreatePost.tsx
 import { useState } from 'react';
 import { useAuth } from '../../context/useAuth';
-import { createPost } from '../../services/postsServices';
+import { uploadImage, createPost } from '../../services/postsServices';
+import { showMessage } from '../../adapter';
 
 export default function CreatePost() {
   const { token } = useAuth();
@@ -9,6 +9,7 @@ export default function CreatePost() {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [image, setImage] = useState<File | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -16,14 +17,20 @@ export default function CreatePost() {
     setError(null);
 
     try {
-      if (!token)
-        throw new Error('Você precisa estar logado para criar posts.');
+      if (!token) throw new Error('Você precisa estar logado para criar posts.');
 
-      await createPost(title, content, token);
+      let imageId: number | undefined;
+      if (image) {
+        console.log("📸 Enviando imagem...");
+        imageId = await uploadImage(image, token);
+      }
 
-      alert('Post criado com sucesso!');
+      await createPost(title, content, token, imageId);
+
+      showMessage.success("✅ Post criado com sucesso!");
       setTitle('');
       setContent('');
+      setImage(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro desconhecido');
     } finally {
@@ -51,6 +58,17 @@ export default function CreatePost() {
             value={content}
             onChange={e => setContent(e.target.value)}
             required
+          />
+        </label>
+
+        <label>
+          Imagem:
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              if (e.target.files?.[0]) setImage(e.target.files[0]);
+            }}
           />
         </label>
 

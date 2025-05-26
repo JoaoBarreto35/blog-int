@@ -1,15 +1,54 @@
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { fetchPost } from '../../services/postsServices';
+import type { FlatPost } from '../../types/post';
+import styles from "./styles.module.css"
+import Header from '../../components/Header';
 
 export default function PostDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const [post, setPost] = useState<FlatPost | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!slug) return;
+
+    fetchPost(slug)
+      .then((data) => {
+        setPost(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [slug]);
+
+  if (loading) return <p>Carregando post...</p>;
+  if (error) return <p>Erro: {error}</p>;
+  if (!post) return <p>Post não encontrado</p>;
+
+  // Corrige a URL da imagem, adicionando a base do Strapi se necessário
+ const imageUrl = post.image?.url ? `http://localhost:1337${post.image.url}` : null;
 
   return (
     <div>
-      <h1>Detalhes do Post</h1>
-      <p>
-        Slug do post: <strong>{slug}</strong>
-      </p>
-      {/* Aqui depois você pode buscar os dados do post usando o slug */}
+      <Header/>
+      <div className={styles.titleContainer}>
+        <div className={styles.left}>
+          {imageUrl ? <img src={imageUrl} alt={post.title} /> : <p>Imagem não disponível</p>}
+          
+        </div>
+           <h1 className={styles.title}>{post.title}</h1>
+      </div>
+
+      <div className={styles.content}>
+        <div></div>
+        <p>{post.content}</p>
+        <div className={styles.ads}>ANUNCIO</div>
+      </div>
+      
     </div>
   );
 }

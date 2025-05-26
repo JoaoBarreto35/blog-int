@@ -1,4 +1,5 @@
 import { PostCard } from '../../components/PostCard';
+import { PostsContainer } from '../../components/PostsContainer';
 import { SearchBar } from '../../components/SearchBar';
 import { usePosts } from '../../hooks/usePosts';
 
@@ -19,10 +20,11 @@ export default function Posts() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {!loading && posts.length === 0 && <p>Nenhum post encontrado.</p>}
-
+      <PostsContainer>
       {posts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}
+      </PostsContainer>
     </main>
   );
 }

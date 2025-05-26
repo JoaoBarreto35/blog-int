@@ -1,9 +1,12 @@
-.searchBar {
-  padding: '8px 12px';
-  width: '100%';
-  max-width: 400;
-  margin-bottom: 20;
-  border-radius: 4;
-  border: '1px solid #ccc';
-  font-size: 16;
+.card{
+  border: 1px solid #ddd;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.card:hover{
+  transform: scale(1.02);
+}
+.title{
+  color: var(--color-primary);
 }
