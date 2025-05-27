@@ -8,7 +8,7 @@
   align-items: center;
   height:var(--height-header);
   position: fixed;
-  
+  z-index: 99;
 }
 .menu{
   display: flex;

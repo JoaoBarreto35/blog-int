@@ -37,16 +37,24 @@ export default function PostDetail() {
       <Header/>
       <div className={styles.titleContainer}>
         <div className={styles.left}>
-          {imageUrl ? <img src={imageUrl} alt={post.title} /> : <p>Imagem não disponível</p>}
+          {imageUrl ? <div><img src={imageUrl} alt={post.title} /><p>BarretoTech: Imagem gerada por IA</p></div> : <p>Imagem não disponível</p>}
           
         </div>
            <h1 className={styles.title}>{post.title}</h1>
+           <div className={styles.detail}>
+            <div className={styles.detail2}></div>
+           </div>
       </div>
 
       <div className={styles.content}>
         <div></div>
         <p>{post.content}</p>
-        <div className={styles.ads}>ANUNCIO</div>
+        <div className={styles.ads}>
+          <div className={styles.adstest}>ADS</div>
+          <div className={styles.adstest}>ADS</div>
+          <div className={styles.adstest}>ADS</div>
+          <div className={styles.adstest}>ADS</div>
+        </div>
       </div>
       
     </div>

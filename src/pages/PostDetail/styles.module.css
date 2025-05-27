@@ -7,6 +7,7 @@
   align-items: top;
   height: 70rem;
   text-align: center;
+  position: relative;
 }
 .left{
   height:100%;
@@ -18,27 +19,44 @@
    min-width: 0;
 }
 .left img{
-  height: 100%;
+  height: 90%;
   display: flex;
 
   background-color: var(--color-primary);
   object-fit: cover;
-  min-width: 0;
+  width: 100%;
   
+}
+.left div{
+  height: 100%;
+  min-width: 0;
+  background-color: var(--color-background);
+  
+}
+.left div p{
+  height: 10%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2rem;
+  color: var(--color-muted);
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.4rem;
+  font-style: italic;
 }
 .titleContainer h1{
   /* background-color: aqua; */
   display: flex;
   align-items: center;
   padding-inline: 10rem;
-  
-  
 }
 
 .title{
-  font-size: 8rem;
+  font-size: 4rem;
   font-family: 'Trebuchet MS', sans-serif;
-
+  color: #fff;
+  text-align: left;
+  max-width: 60%;
 }
 .content{
   display: grid;
@@ -52,32 +70,81 @@
 }
 .ads{
   padding: 2rem;
-  
-}
-@media (max-width: 750px) {
-.content{
   display: flex;
-  flex-direction: column;
-  gap: 2rem
+  flex-direction: column-reverse;
+  gap: 3rem;
+  align-items: top;
+  justify-content: center;
 }
-.content p{
-  padding: 5rem;
-}
-.titleContainer{
-  display: flex;
-  flex-direction:column;
-  justify-content: top ;
-  height: auto;
-}
-
-.title{
-  font-size: 2rem;
+.adstest{
+  height: 40rem;
+  width: 60%;
+  background-color: var(--color-primary-dark);
   text-align: center;
-  
-  height: 100%;
 }
-.left{
-  height:70%;
+.detail{
+  background-color: var(--color-background);
+  display: block;
+  position:absolute;
+  right: 0;
+  bottom: 0;
+  height: 8rem;
+  width: 40%;
+}
+.detail2{
+  width: 100%;
+  height: 40%;
+  background-color: var(--color-primary-dark);
+}
+@media (max-width: 1000px) {
+  .content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem
+  }
+  .content p{
+    padding: 5rem;
+  }
+  .titleContainer{
+    display: flex;
+    flex-direction:column;
+    justify-content: center ;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    gap: 2rem;
+    padding-inline: 0;
+    padding-bottom: 4rem;
+  }
+  .titleContainer h1{
+    padding: 2rem;
+  }
+  .left{
+    height:70%;
 
+  }
+  .detail{
+    background-color: var(--color-background);
+    display: block;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    height: 3rem;
+    width: 40%;
+  }
+  .title{
+    font-size: 2rem;
+    height: 100%;
+    text-align: center;
+    max-width: 100%;
+  }
+  .left div p{
+    display: none;
+  }
+  .left div{
+  width: 100%;
+  height: auto;
+  background-color: aqua;
+  
 }
 }
