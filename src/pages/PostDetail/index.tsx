@@ -4,6 +4,7 @@ import { fetchPost } from '../../services/postsServices';
 import type { FlatPost } from '../../types/post';
 import styles from "./styles.module.css"
 import Header from '../../components/Header';
+import RecentsPosts from '../../components/RecentsPosts';
 
 export default function PostDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -50,10 +51,7 @@ export default function PostDetail() {
         <div></div>
         <p>{post.content}</p>
         <div className={styles.ads}>
-          <div className={styles.adstest}>ADS</div>
-          <div className={styles.adstest}>ADS</div>
-          <div className={styles.adstest}>ADS</div>
-          <div className={styles.adstest}>ADS</div>
+          <RecentsPosts />
         </div>
       </div>
       

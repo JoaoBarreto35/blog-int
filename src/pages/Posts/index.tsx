@@ -25,6 +25,7 @@ export default function Posts() {
         <PostCard key={post.id} post={post} />
       ))}
       </PostsContainer>
+      
     </main>
   );
 }

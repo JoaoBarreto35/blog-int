@@ -1,12 +1,15 @@
 /* Tema claro (default) */
 :root {
-  --color-background: #ffffff;
-  --color-text: #222222;
-  --color-primary: #ffd700;
-  --color-primary: #f7941d;
-  --color-primary-dark: #c76a14;
-  --color-secondary: #f39c12; /* amarelo suave */
-  --color-muted: #666666;
+
+  --color-background: #fdfdfc;        /* branco suave */
+  --color-text: #1e1e1e;              /* quase preto */
+  --color-primary: #f7941d;           /* laranja vibrante (mantido) */
+  --color-primary-dark: #c76a14;      /* tom mais escuro do laranja */
+  --color-secondary: #ffe08a;         /* amarelo claro, suave e agradável */
+  --color-accent: #ffb347;            /* laranja pêssego para pequenos destaques */
+  --color-muted: #888888;             /* cinza mais suave e legível */
+  --color-border: #e0e0e0;            /* cinza claro para bordas sutis */
+
 
   --font-family-base: 'Georgia, serif';
   --font-family-mono: 'Courier New, monospace';

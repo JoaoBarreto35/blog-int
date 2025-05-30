@@ -1,0 +1,32 @@
+.list {
+  list-style: none;
+  padding-left: 2rem;
+  border-left: 2px solid var(--color-primary);
+}
+
+.list h1{
+  text-align: left
+}
+.list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  border-bottom: 1px solid #ddd;
+  width: 80%;
+  cursor: pointer;
+}
+
+.list li::before {
+  content: "•";
+  position: absolute;
+  left:0;
+  top: 1.2rem;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: bolder;
+  line-height: 1;
+
+}
+.list li:hover{
+  text-decoration: underline;
+}
